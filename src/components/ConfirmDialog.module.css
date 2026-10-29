@@ -1,0 +1,104 @@
+/* DESIGN.md §6.12 */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  background: var(--color-overlay);
+  animation: fade-in var(--motion-slow) var(--ease-enter);
+}
+
+.dialog {
+  width: 100%;
+  max-width: 360px;
+  padding: var(--space-6);
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-3);
+  animation: dialog-in var(--motion-slow) var(--ease-enter);
+}
+
+.title {
+  margin: 0;
+  font: var(--text-h3);
+  color: var(--color-text);
+}
+
+.description {
+  margin: var(--space-2) 0 0;
+  font: var(--text-body);
+  color: var(--color-text-2);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+}
+
+.secondary,
+.danger,
+.primary {
+  min-height: 44px;
+  padding: 0 var(--space-4);
+  border: 0;
+  border-radius: var(--radius-md);
+  font: var(--text-body);
+  font-weight: 600;
+  transition:
+    filter var(--motion-fast) var(--ease-standard),
+    transform var(--motion-fast) var(--ease-standard);
+}
+
+.secondary {
+  background: var(--color-surface-2);
+  color: var(--color-text);
+}
+
+.danger {
+  background: var(--color-expense);
+  color: var(--color-on-danger);
+}
+
+.primary {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.secondary:active,
+.danger:active,
+.primary:active {
+  transform: scale(0.98);
+}
+
+.secondary:disabled,
+.danger:disabled,
+.primary:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+@media (hover: hover) {
+  .secondary:hover:not(:disabled),
+  .danger:hover:not(:disabled),
+  .primary:hover:not(:disabled) {
+    filter: brightness(0.94);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}

@@ -1,0 +1,173 @@
+/* Design tokens – DESIGN.md §2 (màu), §3 (chữ), §4 (khoảng cách), §5 (hình khối), §8 (chuyển động) */
+
+:root {
+  color-scheme: light;
+
+  /* §2.1 Màu ngữ nghĩa – Light */
+  --color-bg: #f6f7f9;
+  --color-surface: #ffffff;
+  --color-surface-2: #f0f2f5;
+  --color-border: #e3e6eb;
+  --color-text: #111827;
+  --color-text-2: #4b5563;
+  --color-text-3: #6b7280;
+  --color-primary: #0f766e;
+  --color-on-primary: #ffffff;
+  --color-primary-soft: #e6f4f2;
+  --color-income: #15803d;
+  --color-income-soft: #e8f6ec;
+  --color-expense: #dc2626;
+  --color-expense-soft: #fdecec;
+  --color-on-danger: #ffffff;
+  --color-warning: #b45309;
+  --color-focus-ring: rgb(15 118 110 / 40%);
+  --color-overlay: rgb(17 24 39 / 45%);
+
+  /* §2.2 Màu danh mục – Light */
+  --cat-food: #f59e0b;
+  --cat-transport: #3b82f6;
+  --cat-shopping: #ec4899;
+  --cat-bills: #8b5cf6;
+  --cat-entertainment: #06b6d4;
+  --cat-health: #84cc16;
+  --cat-education: #f97316;
+  --cat-other_expense: #94a3b8;
+  --cat-salary: #15803d;
+  --cat-bonus: #0ea5e9;
+  --cat-side_income: #14b8a6;
+  --cat-gift: #d946ef;
+  --cat-other_income: #94a3b8;
+  --cat-soft-mix: 14%;
+
+  /* §3 Chữ */
+  --font-sans: 'Be Vietnam Pro', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  --text-display: 700 36px / 44px var(--font-sans);
+  --text-h1: 700 28px / 36px var(--font-sans);
+  --text-h2: 700 20px / 28px var(--font-sans);
+  --text-h3: 600 16px / 24px var(--font-sans);
+  --text-body: 400 16px / 24px var(--font-sans);
+  --text-body-strong: 500 16px / 24px var(--font-sans);
+  --text-small: 400 14px / 20px var(--font-sans);
+  --text-caption: 500 12px / 16px var(--font-sans);
+
+  /* §4.1 Khoảng cách */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+
+  /* §5.1 Bo góc */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* §5.2 Đổ bóng */
+  --shadow-1: 0 1px 2px rgb(17 24 39 / 6%), 0 1px 3px rgb(17 24 39 / 8%);
+  --shadow-2: 0 4px 12px rgb(17 24 39 / 12%);
+  --shadow-3: 0 12px 32px rgb(17 24 39 / 18%);
+
+  /* §8.1 Chuyển động */
+  --motion-fast: 120ms;
+  --motion-base: 200ms;
+  --motion-slow: 300ms;
+  --motion-chart: 500ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-enter: cubic-bezier(0, 0, 0.2, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+}
+
+/* §2.1 Màu ngữ nghĩa – Dark (dùng chung cho chế độ hệ thống và chọn tay) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --color-bg: #0e1116;
+    --color-surface: #171b22;
+    --color-surface-2: #1f252e;
+    --color-border: #2a313c;
+    --color-text: #e8ecf1;
+    --color-text-2: #a3adbb;
+    --color-text-3: #7d8796;
+    --color-primary: #2dd4bf;
+    --color-on-primary: #04201d;
+    --color-primary-soft: #123532;
+    --color-income: #4ade80;
+    --color-income-soft: #14301e;
+    --color-expense: #f87171;
+    --color-expense-soft: #3a1a1c;
+    --color-on-danger: #1a0606;
+    --color-warning: #fbbf24;
+    --color-focus-ring: rgb(45 212 191 / 50%);
+    --color-overlay: rgb(0 0 0 / 60%);
+    --cat-food: #fbbf24;
+    --cat-transport: #60a5fa;
+    --cat-shopping: #f472b6;
+    --cat-bills: #a78bfa;
+    --cat-entertainment: #22d3ee;
+    --cat-health: #a3e635;
+    --cat-education: #fb923c;
+    --cat-other_expense: #64748b;
+    --cat-salary: #4ade80;
+    --cat-bonus: #38bdf8;
+    --cat-side_income: #2dd4bf;
+    --cat-gift: #e879f9;
+    --cat-other_income: #64748b;
+    --cat-soft-mix: 22%;
+    --shadow-1: none;
+    --shadow-2: 0 4px 12px rgb(0 0 0 / 50%);
+    --shadow-3: 0 12px 32px rgb(0 0 0 / 60%);
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --color-bg: #0e1116;
+  --color-surface: #171b22;
+  --color-surface-2: #1f252e;
+  --color-border: #2a313c;
+  --color-text: #e8ecf1;
+  --color-text-2: #a3adbb;
+  --color-text-3: #7d8796;
+  --color-primary: #2dd4bf;
+  --color-on-primary: #04201d;
+  --color-primary-soft: #123532;
+  --color-income: #4ade80;
+  --color-income-soft: #14301e;
+  --color-expense: #f87171;
+  --color-expense-soft: #3a1a1c;
+  --color-on-danger: #1a0606;
+  --color-warning: #fbbf24;
+  --color-focus-ring: rgb(45 212 191 / 50%);
+  --color-overlay: rgb(0 0 0 / 60%);
+  --cat-food: #fbbf24;
+  --cat-transport: #60a5fa;
+  --cat-shopping: #f472b6;
+  --cat-bills: #a78bfa;
+  --cat-entertainment: #22d3ee;
+  --cat-health: #a3e635;
+  --cat-education: #fb923c;
+  --cat-other_expense: #64748b;
+  --cat-salary: #4ade80;
+  --cat-bonus: #38bdf8;
+  --cat-side_income: #2dd4bf;
+  --cat-gift: #e879f9;
+  --cat-other_income: #64748b;
+  --cat-soft-mix: 22%;
+  --shadow-1: none;
+  --shadow-2: 0 4px 12px rgb(0 0 0 / 50%);
+  --shadow-3: 0 12px 32px rgb(0 0 0 / 60%);
+}
+
+/* §3.2 – laptop tăng cỡ display/h1 */
+@media (min-width: 1024px) {
+  :root {
+    --text-display: 700 40px / 48px var(--font-sans);
+    --text-h1: 700 32px / 40px var(--font-sans);
+  }
+}
